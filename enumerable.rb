@@ -83,6 +83,19 @@ module Enumerable
 		  return arr
 		else
 		  #execute block and proc
+		  if aproc == nil
+			return self
+		  end
+		  arr = []
+		  self.my_each do |x|
+			arr.push(aproc.call(x))
+		  end
+		  arr1 = []
+		  arr.my_each do |x|
+		    arr1.push(yield(x))
+		  end
+		  arr1
+		end
 	end
 
 	def my_inject(n=nil)
