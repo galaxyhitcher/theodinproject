@@ -1,21 +1,13 @@
-def call_block
-  puts "start method"
-  yield
-  yield
-  puts "end method"
-end
-
-call_block {puts "in the block"}
-
+module Enumerable
+#first three methods are taken from Jamie's solution
+#https://github.com/Jberczel/odin-projects/blob/master/ruby_advanced/project2.rb
 def my_each
   return self unless block_given?
   for i in self
     yield(i)
-	
-	end
   end
-  
 end
+
 
 def my_each_with_index
   
@@ -79,6 +71,7 @@ def my_count(n=nil)
 end
 
 def my_map
+  #this still needs editing to complete the exercise
   return self unless block_given?
   self.my_each do |x|
     x = yield(x)
@@ -86,7 +79,29 @@ def my_map
   return self
 end
 
-def my_inject
-  return self unless block_given
-  #this method needs more work
-end   
+def my_inject(n=nil)
+  if n == nil
+    result = 0
+  else
+    result = n
+  end
+  if !block_given?
+    raise LocalJumpError
+  
+  end
+  self.my_each do |x|
+    result = yield(result,x)
+  end
+  return result
+end
+
+
+end
+
+
+def multiply_els(arr)
+  arr.my_inject(1) {|res,n| res*n}
+end
+
+multiply_els([2,4,5])
+
