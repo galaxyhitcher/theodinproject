@@ -71,7 +71,7 @@ def my_count(n=nil)
 end
 
 def my_map
-  #this still needs editing to complete the exercise
+  #this still needs editing to complete the exercise 
   return self unless block_given?
   self.my_each do |x|
     x = yield(x)
