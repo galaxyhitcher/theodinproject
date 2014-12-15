@@ -70,13 +70,19 @@ module Enumerable
 	  return count
 	end
 
-	def my_map
-	  #this still needs editing to complete the exercise 
-	  return self unless block_given?
-	  self.my_each do |x|
-		x = yield(x)
-	  end
-	  return self
+	def my_map(aproc= nil)
+	  #this still needs editing to complete the exercise
+		unless block_given?
+		  if aproc == nil
+			return self
+		  end
+		  arr = []
+		  self.my_each do |x|
+			arr.push(aproc.call(x))
+		  end
+		  return arr
+		else
+		  #execute block and proc
 	end
 
 	def my_inject(n=nil)
