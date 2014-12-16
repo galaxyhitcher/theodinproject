@@ -23,6 +23,28 @@ class Board
     @board[row][col] = sym
   end
   
+  def win?
+    token = @board[0][0]
+	if (@board[0][0]==token) & (@board[0][1]==token) & (@board[0][2]==token)
+	  puts token + " YOU WON!"
+	elsif (@board[1][0]==token) & (@board[1][1]==token) & (@board[1][2]==token)
+	  puts token + "YOU WON!"
+	elsif (@board[2][0]==token) & (@board[2][1]==token) & (@board[2][2]==token)
+	  puts token + "YOU WON!"
+	elsif (@board[0][0]==token) & (@board[1][0]==token) & (@board[2][0]==token)
+	  puts token + "YOU WON!"
+	elsif (@board[1][0]==token) & (@board[1][1]==token) & (@board[1][2]==token)
+	  puts token + "YOU WON!"
+	elsif (@board[2][0]==token) & (@board[2][1]==token) & (@board[2][2]==token)
+	  puts token + "YOU WON!"
+	elsif (@board[0][0]==token) & (@board[1][1]==token) & (@board[2][2]==token)
+	  puts token + "YOU WON!"
+	elsif (@board[0][2]==token) & (@board[1][1]==token) & (@board[2.][2]==token)
+	  puts token + "YOU WON!"
+	else
+	  puts "NO"
+	end
+  end
   
   
 end

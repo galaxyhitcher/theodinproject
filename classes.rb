@@ -12,6 +12,8 @@ class Warrior
 	Strength is: #{@strength} Dexterity is #{@dexterity}."
   end
   
+$warrior_info = puts "A fighter. A warrior has higher than normal strength.  They never back down, never surrender"
+  
 end
 
 player_1 = Warrior.new("Raze","WhiteFox",23,21)
@@ -19,3 +21,5 @@ player_2 = Warrior.new("Bazerk","RedFang",19,31)
 
 player_1.about
 player_2.about
+
+$warrior_info
