@@ -114,22 +114,12 @@ class Board
   end
   
   def check_row(row_num)
-    result = []
-	if @decoding_board[row_num] == ["O","O","O","O"]
-	  return " "
-	end
-	(0..3).each do |i|
-      if @decoding_board[row_num][i]==@decoding_board[0][i]
-	    result.push("r")
-	  elsif (@decoding_board[row_num][i] == @decoding_board[0][0])||(@decoding_board[row_num][i] == @decoding_board[0][1])||
-	  (@decoding_board[row_num][i] == @decoding_board[0][2])||(@decoding_board[row_num][i] == @decoding_board[0][3])
-	    result.push("w")
-	  end
-	end
-	result.shuffle.join(' ')
+    
   end
+
   
-end
+  
+
 
 #plays game if you are the guesser
 b = Board.new
@@ -137,17 +127,24 @@ human = Codebreaker.new(b)
 computer = Codemaker.new(b)
 computer.mark_board(computer.get_random)
 puts "I just generated a code"
+puts b.print_back_row
 puts "your turn to guess"
 puts "\n"
 
+won = false
 while (human.turn < 12)
   if b.iswon?
     puts "You figured it out!"
+	won = true
 	break
   end
   human.mark_board
   b.print_board
 end
-puts "sorry, you didn't figure it out"
-puts "the code was:"
-puts b.print_back_row
+
+if won == false
+  puts "sorry, you didn't figure it out"
+  puts "the code was:"
+  puts b.print_back_row
+end
+
