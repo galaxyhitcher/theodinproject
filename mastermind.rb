@@ -18,9 +18,14 @@ end
 
 #codebreaker class
 class Codebreaker
-
+  
   def initialize(board)
     @board = board
+	@turn = 0
+  end
+  
+  def turn
+    @turn
   end
   
   def name
@@ -28,6 +33,8 @@ class Codebreaker
   end
   
   def mark_board
+    @board.mark_board(12 - @turn)
+	@turn += 1
   end
   
 
@@ -60,7 +67,9 @@ class Board
     (0..3).each do |j|
 	  puts "what color? R = red, O = orange, Y = yellow, G = green, B = blue, I = indigo"
 	  @decoding_board[row][j] = gets.chomp
+	  
 	end
+	puts "\n"
   end
   
   def print_board
@@ -71,6 +80,7 @@ class Board
 				
 		end
 		puts result.join(' ')
+		
 	  end
   end
   
@@ -92,12 +102,26 @@ class Board
 	return false
   end
   
+  def check_row(row)
+    
+    
+  end
+  
 end
 
-
+#plays game
 b = Board.new
-joe = Codebreaker.new(b)
-puts joe
-louis = Codemaker.new(b)
-louis.mark_board
-b.print_back_row
+player2 = Codebreaker.new(b)
+player1 = Codemaker.new(b)
+player1.mark_board
+puts "Player 2 -- your turn"
+puts "\n"
+
+while (player2.turn < 12)
+  if b.iswon?
+    puts "You figured it out!"
+	break
+  end
+  player2.mark_board
+  b.print_board
+end
