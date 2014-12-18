@@ -45,18 +45,18 @@ class Board
   def initialize
     
 	@decoding_board = [["O","O","O","O"],
-					["O","O","O","O"],
-					["O","O","O","O"],
-					["O","O","O","O"],
-					["O","O","O","O"],
-					["O","O","O","O"],
-					["O","O","O","O"],
-					["O","O","O","O"],
-					["O","O","O","O"],
-					["O","O","O","O"],
-					["O","O","O","O"],
-					["O","O","O","O"],
-					["O","O","O","O"]]
+					  ["O","O","O","O"],
+					  ["O","O","O","O"],
+					  ["O","O","O","O"],
+					  ["O","O","O","O"],
+					  ["O","O","O","O"],
+					  ["O","O","O","O"],
+					  ["O","O","O","O"],
+					  ["O","O","O","O"],
+					  ["O","O","O","O"],
+					  ["O","O","O","O"],
+					  ["O","O","O","O"],
+					  ["O","O","O","O"]]
   end
   
   def board
@@ -65,7 +65,7 @@ class Board
   
   def mark_board(row)
     (0..3).each do |j|
-	  puts "what color? R = red, O = orange, Y = yellow, G = green, B = blue, I = indigo"
+	  puts "what color? R = red, P = purple, Y = yellow, G = green, B = blue, I = indigo"
 	  @decoding_board[row][j] = gets.chomp
 	  
 	end
