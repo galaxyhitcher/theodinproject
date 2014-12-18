@@ -1,5 +1,3 @@
-#eventually refactor Codemaker < Player and Codebreaker < Player
-
 #codemaker class
 class Codemaker
   def initialize(board)
@@ -11,8 +9,16 @@ class Codemaker
    puts @name
   end
   
-  def mark_board
-    @board.mark_board(0)
+  def get_random
+    result = []
+	(0..3).each do |i|
+	  result.push(["R","P","Y","G","B","I"].sample)
+	end
+	result
+  end
+  
+  def mark_board(values = nil)
+    @board.mark_board(0,values)
   end
 end
 
@@ -63,13 +69,17 @@ class Board
     @decoding_board
   end
   
-  def mark_board(row)
-    (0..3).each do |j|
-	  puts "what color? R = red, P = purple, Y = yellow, G = green, B = blue, I = indigo"
-	  @decoding_board[row][j] = gets.chomp
-	  
+  def mark_board(row,values = nil)
+    if values == nil
+		(0..3).each do |j|
+		  puts "what color? R = red, P = purple, Y = yellow, G = green, B = blue, I = indigo"
+		  @decoding_board[row][j] = gets.chomp
+		  
+		end
+		puts "\n"
+	else
+	  @decoding_board[row] = values
 	end
-	puts "\n"
   end
   
   def print_board
@@ -116,24 +126,28 @@ class Board
 	    result.push("w")
 	  end
 	end
-	result.join(' ')
+	result.shuffle.join(' ')
   end
   
 end
 
-#plays game
+#plays game if you are the guesser
 b = Board.new
-player2 = Codebreaker.new(b)
-player1 = Codemaker.new(b)
-player1.mark_board
-puts "Player 2 -- your turn"
+human = Codebreaker.new(b)
+computer = Codemaker.new(b)
+computer.mark_board(computer.get_random)
+puts "I just generated a code"
+puts "your turn to guess"
 puts "\n"
 
-while (player2.turn < 12)
+while (human.turn < 12)
   if b.iswon?
     puts "You figured it out!"
 	break
   end
-  player2.mark_board
+  human.mark_board
   b.print_board
 end
+puts "sorry, you didn't figure it out"
+puts "the code was:"
+puts b.print_back_row
