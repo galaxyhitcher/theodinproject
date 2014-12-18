@@ -79,9 +79,10 @@ class Board
 		result.push(@decoding_board[i][j])
 				
 		end
-		puts result.join(' ')
+		puts result.join(' ') + " " + check_row(i)
 		
 	  end
+	puts "\n"
   end
   
   def print_back_row
@@ -102,9 +103,20 @@ class Board
 	return false
   end
   
-  def check_row(row)
-    
-    
+  def check_row(row_num)
+    result = []
+	if @decoding_board[row_num] == ["O","O","O","O"]
+	  return " "
+	end
+	(0..3).each do |i|
+      if @decoding_board[row_num][i]==@decoding_board[0][i]
+	    result.push("r")
+	  elsif (@decoding_board[row_num][i] == @decoding_board[0][0])||(@decoding_board[row_num][i] == @decoding_board[0][1])||
+	  (@decoding_board[row_num][i] == @decoding_board[0][2])||(@decoding_board[row_num][i] == @decoding_board[0][3])
+	    result.push("w")
+	  end
+	end
+	result.join(' ')
   end
   
 end
