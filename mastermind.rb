@@ -118,6 +118,7 @@ class Board
 	#initialize result array
 	#create a hash which tallies up the number of instances of the colors which appear in the back row back_code_hash
 	#for each color in it's right place, result.push("r"), back_code_hash(element) -= 1, 
+	#count bonus "w"s
   end
 
   
