@@ -115,10 +115,44 @@ class Board
   
   def check_row(row_num)
     #initialize back_code_row array
+	back_code_row = @decoding_board[0]
 	#initialize result array
+	result = []
+	#initialize current_row
+	current_row = @decoding_board[row_num]
+	#initialize current_row_hash
+	current_row_hash = Hash.new
+	(0..3).each do |i|
+	  curr = current_row[i]
+	  if current_row_hash[curr]
+	    current_row_hash[curr] += 1
+	  else
+	    current_row_hash[curr] = 1
+	  end
+	end
 	#create a hash which tallies up the number of instances of the colors which appear in the back row back_code_hash
+	back_code_hash = Hash.new
+	(0..3).each do |i|
+	  current = back_code_row[i]
+	  if back_code_hash[current]
+	    back_code_hash[current] += 1
+	  else
+	    back_code_hash[current] = 1
+	  end
+	end
 	#for each color in it's right place, result.push("r"), back_code_hash(element) -= 1, 
-	#count bonus "w"s
+	(0..3).each do |i|
+	  if current_row[i]==back_code_row[i]
+	    result.push("r")
+		back_code_hash[current_row[i]] -= 1
+		current_row_hash[current_row[i]] -= 1
+	  end
+	end
+	#count bonus "w"s 
+	#for element in back_code_hash,while back_code_hash[element] > 0, if back_code_hash[element]>0 and current_row_hash[element] > 0,back_code_hash[element]-= 1, current_row_hash[element]-= 1, result.push('w')
+	
+	#returns result array
+	result.join('')
   end
 
   
