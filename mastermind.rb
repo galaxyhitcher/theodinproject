@@ -150,7 +150,19 @@ class Board
 	end
 	#count bonus "w"s 
 	#for element in back_code_hash,while back_code_hash[element] > 0, if back_code_hash[element]>0 and current_row_hash[element] > 0,back_code_hash[element]-= 1, current_row_hash[element]-= 1, result.push('w')
-	
+	back_code_hash.keys.each do |key|
+		if (back_code_hash[key]!= nil) & (current_row_hash[key]!= nil)
+		  while (back_code_hash[key] > 0) & (current_row_hash[key] > 0)
+			if back_code_hash[key]
+			  if (back_code_hash[key] > 0) & (current_row_hash[key] > 0)
+				back_code_hash[key] -= 1
+				current_row_hash[key] -= 1
+				result.push("w")
+			  end
+			end
+		  end
+		end
+	end
 	#returns result array
 	result.join('')
   end
@@ -165,7 +177,7 @@ human = Codebreaker.new(b)
 computer = Codemaker.new(b)
 computer.mark_board(computer.get_random)
 puts "I just generated a code"
-puts b.print_back_row
+#puts b.print_back_row
 puts "your turn to guess"
 puts "\n"
 
