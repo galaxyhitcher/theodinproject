@@ -196,6 +196,7 @@ while (human.turn < 12)
     puts "You figured it out!"
 	won = true
 	break
+	end
 end
 
 if won == false
