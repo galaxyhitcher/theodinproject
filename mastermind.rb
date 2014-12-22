@@ -204,4 +204,3 @@ if won == false
   puts "the code was:"
   puts b.print_back_row
 end
-

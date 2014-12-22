@@ -23,7 +23,12 @@ while flag == true
 
 	guess = gets.chomp
 	
-	wrong_guess_check = true
+	right_guess = false
+	(0..current.length).each do |i|
+	  if secret_word[i] == guess
+	    right_guess = true
+	  end
+	end
 	(0..current.length).each do |i|
 		  if secret_word[i]==guess
 			current[i] = guess
@@ -43,9 +48,8 @@ while flag == true
 		  end
 			
 		end
-	if wrong_guess_check == true
-	  wrong_guesses += 1
-	end
+	
+	
 	flag = false
 	(0..current.length).each do |i|
 	  if current[i] == "_"
@@ -53,8 +57,11 @@ while flag == true
 	  end
 	end
     puts current
-	puts "wrong_guesses:"
-	puts wrong_guesses
+	if !(right_guess)
+	  wrong_guesses += 1
+	  puts "wrong_guesses:"
+	  puts wrong_guesses
+	end
 	
 end
 
