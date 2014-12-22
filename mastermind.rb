@@ -190,6 +190,12 @@ while (human.turn < 12)
   end
   human.mark_board
   b.print_board
+  
+  #checks again to see if game is won at end of loop
+  if b.iswon?
+    puts "You figured it out!"
+	won = true
+	break
 end
 
 if won == false
