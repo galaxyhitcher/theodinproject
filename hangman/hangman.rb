@@ -69,6 +69,9 @@ class Game
 	@@games.push(@saved)
   end
   
+  def print_state(n)
+  end
+  
   def get_guess
     puts "your turn to guess"
 	guess = gets.chomp
@@ -114,6 +117,13 @@ class Game
 	end
 	if won?
 	  puts "You won!"
+	  #now delete won game from yml file
+	  #puts YAML.dump(self)
+	  @@games.each do |game|
+	    if game == YAML.dump(self)
+		  #open the file and delete the game from the yml file
+		end
+	  end
 	else
 	  #serialize @@games here
 	  output = File.new('gamestate.yml','w')

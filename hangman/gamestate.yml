@@ -5,3 +5,5 @@
   infla_e_\nsaved: \n"
 - ! "--- !ruby/object:Game\nwrong_guesses: 17\nsecret_word: ! 'curvet\n\n'\ncurrent:
   cur_et\nsaved: \n"
+- ! "--- !ruby/object:Game\nwrong_guesses: 16\nsecret_word: ! 'utmost\n\n'\ncurrent:
+  _tmost\nsaved: \n"
