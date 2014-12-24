@@ -4,8 +4,13 @@ require 'yaml'
 
 
 class Game
-
-  @@games = Array.new
+  #boot up @@games from file here
+  if not File.zero?("gamestate.yml")
+    output = File.new("gamestate.yml","r")
+	@@games = YAML.load(output.read)
+  else
+    @@games = Array.new
+  end
   
   def self.games
     @@games
@@ -110,6 +115,9 @@ class Game
 	if won?
 	  puts "You won!"
 	else
+	  #serialize @@games here
+	  output = File.new('gamestate.yml','w')
+	  output.puts YAML.dump(@@games)
 	  puts "Game saved."
 	end
   end
@@ -121,10 +129,11 @@ end
 #see https://www.youtube.com/watch?v=NSifr3DflxQ, output game state to another file, boot up game state from that file
 puts "press L to load a game or anything else to make a new game"
 choice = gets.chomp
-if choice == L
+if choice == "L"
 	(0..Game.games.length - 1).each do |i|
 	  puts "press " + (i+1).to_s + " for Game " + (i+1).to_s
 	end 
+	selection = gets.chomp.to_i
 else
   g1 = Game.new
   g1.play_game
