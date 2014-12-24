@@ -4,7 +4,13 @@ require 'yaml'
 
 
 class Game
+
   @@games = Array.new
+  
+  def self.games
+    @@games
+  end
+  
   def initialize
 	@wrong_guesses = 0
 	@secret_word = get_word
@@ -26,6 +32,7 @@ class Game
   def games
     @@games
   end
+  
   
   def wrong_guesses
     @wrong_guesses
@@ -110,19 +117,21 @@ class Game
   
 end
 
-puts "press L to load a game or anything else to continue"
 
-g1 = Game.new
+#see https://www.youtube.com/watch?v=NSifr3DflxQ, output game state to another file, boot up game state from that file
+puts "press L to load a game or anything else to make a new game"
+choice = gets.chomp
+if choice == L
+	(0..Game.games.length - 1).each do |i|
+	  puts "press " + (i+1).to_s + " for Game " + (i+1).to_s
+	end 
+else
+  g1 = Game.new
+  g1.play_game
+end
 
-g1.play_game
 
-puts g1::games
 
-g2 = Game.new
-
-g2.play_game
-
-puts g2::games
 
 
 
