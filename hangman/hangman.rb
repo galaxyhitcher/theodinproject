@@ -1,7 +1,7 @@
 require 'yaml'
 
 #the idea is to have a Game object which can be serialized into YAML and then reloaded from YAML back to a game object
-
+#TODO: make some indicator which tells player how many turns they have left, delete game after game is won or lost
 
 class Game
   #boot up @@games from file here
