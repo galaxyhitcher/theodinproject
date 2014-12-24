@@ -134,6 +134,7 @@ if choice == "L"
 	  puts "press " + (i+1).to_s + " for Game " + (i+1).to_s
 	end 
 	selection = gets.chomp.to_i
+	YAML.load(Game.games[selection - 1]).play_game
 else
   g1 = Game.new
   g1.play_game
