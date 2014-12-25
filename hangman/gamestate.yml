@@ -7,3 +7,5 @@
   cur_et\nsaved: \n"
 - ! "--- !ruby/object:Game\nwrong_guesses: 16\nsecret_word: ! 'utmost\n\n'\ncurrent:
   _tmost\nsaved: \n"
+- ! "--- !ruby/object:Game\nwrong_guesses: 12\nsecret_word: ! 'chasmic\n\n'\ncurrent:
+  cha_mic\nsaved: \n"

@@ -119,9 +119,11 @@ class Game
 	  puts "You won!"
 	  #now delete won game from yml file
 	  #puts YAML.dump(self)
+	  gamestate = File.new('gamestate.yml','r+')
+	  puts YAML.load(gamestate)[0]
 	  @@games.each do |game|
 	    if game == YAML.dump(self)
-		  #open the file and delete the game from the yml file
+		  
 		end
 	  end
 	else
