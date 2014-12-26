@@ -5,6 +5,7 @@ require 'yaml'
 #TODO: make the program case insensitive
 
 class Game
+  attr_accessor :games, :wrong_guesses, :secret_word, :current, :saved
   #boot up @@games from file here
   if not File.zero?("gamestate.yml")
     output = File.new("gamestate.yml","r")
@@ -33,27 +34,6 @@ class Game
       end
     end
 	choices.sample
-  end
-  
-  def games
-    @@games
-  end
-  
-  
-  def wrong_guesses
-    @wrong_guesses
-  end
-  
-  def secret_word
-    @secret_word
-  end
-  
-  def current
-    @current
-  end
-  
-  def saved
-    @saved
   end
   
   def load_game(obj)
