@@ -1,7 +1,7 @@
 require 'yaml'
 
 #the idea is to have a Game object which can be serialized into YAML and then reloaded from YAML back to a game object
-#TODO: make some indicator which tells player how many turns they have left, implement ASCII graphics for this purpose
+#TODO: make some indicator which tells player how many turns they have left, something like "5 guesses left..."
 #TODO: make the program case insensitive
 
 class Game
@@ -152,6 +152,8 @@ end
 
 #see https://www.youtube.com/watch?v=NSifr3DflxQ, output game state to another file, boot up game state from that file
 puts "press L to load a game or anything else to make a new game"
+puts 'TO SAVE CURRENT GAME ENTER "?"'
+puts 'TO END CURRENT GAME ENTER "end"'
 choice = gets.chomp
 if choice == "L"
 	(0..Game.games.length - 1).each do |i|
