@@ -1,7 +1,1 @@
----
-- ! "--- !ruby/object:Game\nwrong_guesses: 4\nsecret_word: ! 'cerebellum\n\n'\ncurrent:
-  ce_ebe____\nsaved: \n"
-- ! "--- !ruby/object:Game\nwrong_guesses: 1\nsecret_word: ! 'nonsexual\n\n'\ncurrent:
-  ___s___a_\nsaved: \n"
-- ! "--- !ruby/object:Game\nwrong_guesses: 12\nsecret_word: ! 'remodify\n\n'\ncurrent:
-  remodif_\nsaved: \n"
+--- []

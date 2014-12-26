@@ -1,7 +1,8 @@
 require 'yaml'
 
 #the idea is to have a Game object which can be serialized into YAML and then reloaded from YAML back to a game object
-#TODO: make some indicator which tells player how many turns they have left, delete game after game is won or lost
+#TODO: make some indicator which tells player how many turns they have left, implement ASCII graphics for this purpose
+#TODO: make the program case insensitive
 
 class Game
   #boot up @@games from file here
@@ -88,9 +89,6 @@ class Game
 	@@games.push(@saved)
   end
   
-  def print_state(n)
-  end
-  
   def get_guess
     puts "your turn to guess"
 	guess = gets.chomp
@@ -137,15 +135,8 @@ class Game
 	if won?
 	  puts "You won!"
 	  
-	  
-	  
-	  
+	  #this finds and deletes the current game
 	  find_and_delete_obj
-	  
-	  
-		
-	  
-	  
 	  
 	else
 	  #serialize @@games here
