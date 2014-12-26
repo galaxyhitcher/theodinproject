@@ -1,11 +1,7 @@
 ---
-- ! "--- !ruby/object:Game\nwrong_guesses: 17\nsecret_word: ! 'uppity\n\n'\ncurrent:
-  uppit_\nsaved: \n"
-- ! "--- !ruby/object:Game\nwrong_guesses: 9\nsecret_word: ! 'inflater\n\n'\ncurrent:
-  infla_e_\nsaved: \n"
-- ! "--- !ruby/object:Game\nwrong_guesses: 17\nsecret_word: ! 'curvet\n\n'\ncurrent:
-  cur_et\nsaved: \n"
-- ! "--- !ruby/object:Game\nwrong_guesses: 16\nsecret_word: ! 'utmost\n\n'\ncurrent:
-  _tmost\nsaved: \n"
-- ! "--- !ruby/object:Game\nwrong_guesses: 12\nsecret_word: ! 'chasmic\n\n'\ncurrent:
-  cha_mic\nsaved: \n"
+- ! "--- !ruby/object:Game\nwrong_guesses: 4\nsecret_word: ! 'cerebellum\n\n'\ncurrent:
+  ce_ebe____\nsaved: \n"
+- ! "--- !ruby/object:Game\nwrong_guesses: 1\nsecret_word: ! 'nonsexual\n\n'\ncurrent:
+  ___s___a_\nsaved: \n"
+- ! "--- !ruby/object:Game\nwrong_guesses: 12\nsecret_word: ! 'remodify\n\n'\ncurrent:
+  remodif_\nsaved: \n"

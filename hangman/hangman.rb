@@ -63,6 +63,25 @@ class Game
 	@saved = temp::saved
   end
   
+  def find_and_delete_obj
+    state = File.new("gamestate.yml","r+")
+	temp_arr = YAML.load(state)
+	#YAML.load(state) is an array!!
+	#YAML.load(state)[0] is a string!!
+	#YAML.load(YAML.load(state)[0]) is a Game object!!
+	final_arr = []
+	puts temp_arr.size
+	(0..temp_arr.size - 1).each do |i|
+	  
+	  unless YAML.load(temp_arr[i])::secret_word == self.secret_word
+	    final_arr.push(temp_arr[i])
+	  end
+	end
+	
+	File.open("gamestate.yml","w") {}
+	output = File.new('gamestate.yml','w')
+	output.puts YAML.dump(final_arr)
+  end
   
   def save_game
     @saved = YAML.dump(self)
@@ -117,15 +136,17 @@ class Game
 	end
 	if won?
 	  puts "You won!"
-	  #now delete won game from yml file
-	  #puts YAML.dump(self)
-	  gamestate = File.new('gamestate.yml','r+')
-	  puts YAML.load(gamestate)[0]
-	  @@games.each do |game|
-	    if game == YAML.dump(self)
-		  
-		end
-	  end
+	  
+	  
+	  
+	  
+	  find_and_delete_obj
+	  
+	  
+		
+	  
+	  
+	  
 	else
 	  #serialize @@games here
 	  output = File.new('gamestate.yml','w')
