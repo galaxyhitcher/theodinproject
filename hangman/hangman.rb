@@ -1,7 +1,6 @@
 require 'yaml'
 
 #the idea is to have a Game object which can be serialized into YAML and then reloaded from YAML back to a game object
-#TODO: make some indicator which tells player how many turns they have left, something like "5 guesses left..."
 #TODO: make the program case insensitive
 
 class Game
@@ -33,7 +32,7 @@ class Game
         choices.push(word)
       end
     end
-	choices.sample
+	choices.sample.downcase
   end
   
   def load_game(obj)
@@ -72,7 +71,7 @@ class Game
   
   def get_guess
     puts "your turn to guess"
-	guess = gets.chomp
+	guess = gets.chomp.downcase
 	current_changed = false
 	(0..@current.size).each do |i|
 	  if guess == @secret_word[i]

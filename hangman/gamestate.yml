@@ -1,3 +1,7 @@
 ---
 - ! "--- !ruby/object:Game\nwrong_guesses: 0\nsecret_word: ! 'sharpy\n\n'\ncurrent:
   __a___\nsaved: \n"
+- ! "--- !ruby/object:Game\nwrong_guesses: 0\nsecret_word: ! 'unsolvable\n\n'\ncurrent:
+  __________\nsaved: \n"
+- ! "--- !ruby/object:Game\nwrong_guesses: 0\nsecret_word: ! 'unsolvable\n\n'\ncurrent:
+  ______ab__\nsaved: \n"
