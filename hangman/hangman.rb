@@ -1,7 +1,7 @@
 require 'yaml'
 
 #the idea is to have a Game object which can be serialized into YAML and then reloaded from YAML back to a game object
-#TODO: make the program case insensitive
+#TODO: need to make program show game state and available guesses at start of loaded game
 
 class Game
   attr_accessor :games, :wrong_guesses, :secret_word, :current, :saved
