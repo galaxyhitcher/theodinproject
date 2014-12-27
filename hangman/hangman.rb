@@ -2,6 +2,9 @@ require 'yaml'
 
 #the idea is to have a Game object which can be serialized into YAML and then reloaded from YAML back to a game object
 #TODO: need to make program show game state and available guesses at start of loaded game
+#TODO: if there are no games to load, do something...
+
+
 
 class Game
   attr_accessor :games, :wrong_guesses, :secret_word, :current, :saved
@@ -101,6 +104,7 @@ class Game
   
   def play_game
     
+	
     while !won? && ((6 - self.wrong_guesses) > 0)
 	  g1 = get_guess
 	  if g1 == "?"
@@ -140,7 +144,10 @@ if choice == "L"
 	  puts "press " + (i+1).to_s + " for Game " + (i+1).to_s
 	end 
 	selection = gets.chomp.to_i
-	YAML.load(Game.games[selection - 1]).play_game
+	current_game = YAML.load(Game.games[selection - 1])
+	puts current_game::current
+	puts "you have: #{6 - current_game::wrong_guesses } guesses 'til the poor man hangs"
+	current_game.play_game
 else
   g1 = Game.new
   g1.play_game
