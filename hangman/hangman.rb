@@ -51,7 +51,7 @@ class Game
 	#YAML.load(state)[0] is a string!!
 	#YAML.load(YAML.load(state)[0]) is a Game object!!
 	final_arr = []
-	puts temp_arr.size
+	
 	(0..temp_arr.size - 1).each do |i|
 	  
 	  unless YAML.load(temp_arr[i])::secret_word == self.secret_word
@@ -67,6 +67,7 @@ class Game
   def save_game
     @saved = YAML.dump(self)
 	@@games.push(@saved)
+	puts "Game saved."
   end
   
   def get_guess
@@ -101,7 +102,7 @@ class Game
   
   def play_game
     
-    while !won?
+    while !won? && ((6 - self.wrong_guesses) > 0)
 	  g1 = get_guess
 	  if g1 == "?"
 	    @saved = save_game
@@ -109,7 +110,7 @@ class Game
 	    break
 	  end
 	  puts current
-	  puts wrong_guesses
+	  puts "you have: #{6 - self.wrong_guesses } guesses 'til the poor man hangs"
 	  
 	end
 	if won?
@@ -122,7 +123,7 @@ class Game
 	  #serialize @@games here
 	  output = File.new('gamestate.yml','w')
 	  output.puts YAML.dump(@@games)
-	  puts "Game saved."
+	  puts "Game ended."
 	end
   end
   
