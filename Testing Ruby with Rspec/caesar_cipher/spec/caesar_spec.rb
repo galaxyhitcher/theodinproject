@@ -34,10 +34,5 @@ describe Cipher do
 			cipher = Cipher.new "WoZ", 3
 			cipher.perform_shift.should == "ZrC"
 		end
-
-		it "shifts the string backwards with a negative integer" do
-			cipher = Cipher.new "dbst", -1
-			cipher.perform_shift.should == "cars"
-		end
 	end
 end

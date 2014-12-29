@@ -22,6 +22,3 @@ class Cipher
 	end
 end
 
-word = Cipher.new "dbst", -1
-
-puts word.perform_shift
