@@ -6,18 +6,22 @@ class Cipher
 	end
 
 	def perform_shift
+		decode = @string_to_decode.dup
 		@shift.times {
-			@string_to_decode.split('').each_with_index do |letter, i|
+			decode.split('').each_with_index do |letter, i|
 				if letter == "z"
-					@string_to_decode[i] = "a"
+					decode[i] = "a"
 				elsif letter == "Z"
-					@string_to_decode[i] = "A"
+					decode[i] = "A"
 				else
-					@string_to_decode[i] = letter.succ
+					decode[i] = letter.succ
 				end
 			end
 		}
-		@string_to_decode
+		decode
 	end
 end
 
+word = Cipher.new "dbst", -1
+
+puts word.perform_shift
