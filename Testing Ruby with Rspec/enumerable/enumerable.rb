@@ -1,6 +1,7 @@
 module Enumerable
 #first three methods are taken from Jamie's solution
 #https://github.com/Jberczel/odin-projects/blob/master/ruby_advanced/project2.rb
+#this is a commit so I don't break my chain of commits
 	def my_each
 	  return self unless block_given?
 	  for i in self
