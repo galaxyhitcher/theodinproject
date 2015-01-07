@@ -1,6 +1,6 @@
 arr = [4,3,78,2,0,2]
 #here's an update 1/4/2015
-
+#here's an update 1/6/2015
 #here's an update 1/5/2015
 #this bubble-sorts an array
 def bubble_sort(arr)
