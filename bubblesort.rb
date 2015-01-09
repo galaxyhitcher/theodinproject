@@ -4,6 +4,7 @@ arr = [4,3,78,2,0,2]
 #here's an update 1/5/2015
 #this bubble-sorts an array
 #update 1/7/2015
+# update 1/8/2015
 def bubble_sort(arr)
   flag = true
   while flag == true
