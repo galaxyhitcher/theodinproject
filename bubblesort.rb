@@ -7,6 +7,7 @@ arr = [4,3,78,2,0,2]
 # update 1/8/2015
 #update 1/9/2015
 #update 1/10
+#update 1/11
 def bubble_sort(arr)
   flag = true
   while flag == true
