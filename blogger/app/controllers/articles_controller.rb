@@ -39,6 +39,9 @@ class ArticlesController < ApplicationController
 
 	  redirect_to article_path(@article)
   end
+  def view_count
+    
+  end
   
   
 end
